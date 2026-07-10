@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #09090B;
+  color: #e5e1e4;
+  scroll-behavior: smooth;
+}
+
+.glass-card {
+  background: rgba(24, 24, 27, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid #27272A;
+}
+
+.grid-pattern {
+  background-image: radial-gradient(#27272A 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.code-gradient {
+  background: linear-gradient(135deg, #111113 0%, #18181B 100%);
+}
+
+.glow-button {
+  box-shadow: 0px 0px 20px rgba(99, 102, 241, 0.15);
+}
+.glow-button:hover {
+  box-shadow: 0px 0px 30px rgba(99, 102, 241, 0.3);
+}
+
+.timeline-line {
+  background: linear-gradient(to bottom, transparent, #27272A 15%, #27272A 85%, transparent);
+}
+
+::selection {
+  background-color: theme('colors.primary-container');
+  color: theme('colors.on-primary-container');
+}
+
+/* Custom Scrollbar - Obsidian Nexus Theme */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #353437 #09090B;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090B;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #353437;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #494bd6; /* Primary accent on hover */
+}
