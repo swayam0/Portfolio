@@ -13,7 +13,7 @@ const featuredProjects = [
     description: 'End-to-end solo-built webinar and consultation platform — architected and shipped independently, from live streaming infrastructure (Agora RTC) to secure chat and PDF report delivery.',
     stack: ['Next.js 16', 'Agora RTC', 'Tailwind', 'Node.js', 'Express', 'MongoDB'],
     image: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=2070&auto=format&fit=crop',
-    link: '#',
+    link: 'https://webinar.neelachalvastushastra.com/',
     github: '#'
   },
   {
@@ -72,7 +72,14 @@ export default function Projects() {
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col gap-32">
         {featuredProjects.map((project, index) => {
           return (
-            <div key={project.id} className="flex flex-col lg:flex-row gap-unit-lg lg:gap-24 relative">
+            <motion.div 
+              key={project.id} 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="flex flex-col lg:flex-row gap-unit-lg lg:gap-24 relative hover:scale-[1.02] hover:shadow-2xl transition-all duration-200"
+            >
               {/* Sticky Image Section (Desktop) / Normal Image (Mobile) */}
               <div className="lg:w-3/5 lg:sticky lg:top-32 h-fit mb-8 lg:mb-0 relative group">
                 <div className="absolute -inset-4 bg-primary/5 rounded-2xl blur-xl group-hover:bg-primary/10 transition duration-700"></div>
@@ -122,20 +129,24 @@ export default function Projects() {
                   </div>
                   
                   <div className="flex gap-4">
-                    <MagneticButton>
-                      <Link href={project.link} className="glow-button bg-primary text-on-primary px-6 py-3 rounded-lg font-headline-md text-sm hover:bg-primary-container transition-all flex items-center gap-2 block">
-                        View Project <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                      </Link>
-                    </MagneticButton>
-                    <MagneticButton>
-                      <Link href={project.github} className="border border-outline-variant text-on-surface px-6 py-3 rounded-lg font-headline-md text-sm hover:bg-surface-variant transition-all flex items-center gap-2 block">
-                        GitHub <span className="material-symbols-outlined text-sm">code</span>
-                      </Link>
-                    </MagneticButton>
+                    {project.link && project.link !== '#' && (
+                      <MagneticButton>
+                        <Link href={project.link} target="_blank" rel="noopener noreferrer" className="glow-button bg-primary text-on-primary px-6 py-3 rounded-lg font-headline-md text-sm hover:bg-primary-container transition-all flex items-center gap-2 block">
+                          View Live <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                        </Link>
+                      </MagneticButton>
+                    )}
+                    {project.github && project.github !== '#' && (
+                      <MagneticButton>
+                        <Link href={project.github} target="_blank" rel="noopener noreferrer" className="border border-outline-variant text-on-surface px-6 py-3 rounded-lg font-headline-md text-sm hover:bg-surface-variant transition-all flex items-center gap-2 block">
+                          GitHub <span className="material-symbols-outlined text-sm">code</span>
+                        </Link>
+                      </MagneticButton>
+                    )}
                   </div>
                 </motion.div>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
@@ -157,9 +168,9 @@ export default function Projects() {
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="glass-card rounded-2xl overflow-hidden group flex flex-col h-full"
+              className="glass-card rounded-2xl overflow-hidden group flex flex-col h-full hover:scale-[1.02] hover:shadow-2xl transition-all duration-200"
             >
               <div className="aspect-[16/9] overflow-hidden border-b border-outline-variant/30 relative">
                 <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />

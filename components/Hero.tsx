@@ -76,16 +76,22 @@ export default function Hero() {
           </motion.div>
 
           <motion.div variants={itemVariants} className="pt-unit-lg border-t border-outline-variant/30 max-w-xl">
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-8">
               <div>
                 <p className="text-outline uppercase text-[10px] font-label-mono mb-1 tracking-wider">Status</p>
-                <p className="text-tertiary font-label-mono text-xs">Currently taking on 1-2 freelance projects — responds within 24 hours.</p>
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-2 w-2 flex-shrink-0">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  <p className="text-tertiary font-label-mono text-xs whitespace-nowrap">Currently taking on 1-2 freelance projects — responds within 24 hours.</p>
+                </div>
               </div>
               <div>
                 <p className="text-outline uppercase text-[10px] font-label-mono mb-1 tracking-wider">Career Focus</p>
-                <p className="text-primary font-label-mono text-xs">Software Engineering</p>
+                <p className="text-primary font-label-mono text-xs whitespace-nowrap">Software Engineering</p>
               </div>
-              <div className="sm:col-span-2">
+              <div>
                 <p className="text-outline uppercase text-[10px] font-label-mono mb-2 tracking-wider">Core Connect</p>
                 <div className="flex gap-4">
                   <Link href="https://github.com/swayam0" target="_blank" className="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 font-label-mono text-xs">
