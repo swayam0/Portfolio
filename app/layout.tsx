@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import Spotlight from "@/components/Spotlight";
 import CommandPalette from "@/components/CommandPalette";
+import { Analytics } from "@vercel/analytics/next";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -77,6 +78,7 @@ export default function RootLayout({
         <Spotlight />
         <CommandPalette />
         {children}
+        <Analytics />
       </body>
     </html>
   );
