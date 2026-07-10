@@ -79,7 +79,7 @@ export default function Hero() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               <div>
                 <p className="text-outline uppercase text-[10px] font-label-mono mb-1 tracking-wider">Status</p>
-                <p className="text-tertiary font-label-mono text-xs">Available for Freelance</p>
+                <p className="text-tertiary font-label-mono text-xs">Currently taking on 1-2 freelance projects — responds within 24 hours.</p>
               </div>
               <div>
                 <p className="text-outline uppercase text-[10px] font-label-mono mb-1 tracking-wider">Career Focus</p>

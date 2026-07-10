@@ -8,8 +8,30 @@ import MagneticButton from './MagneticButton';
 const featuredProjects = [
   {
     id: '01',
+    title: 'AstroVastu Web Platform',
+    category: 'Solo-built',
+    description: 'End-to-end solo-built webinar and consultation platform — architected and shipped independently, from live streaming infrastructure (Agora RTC) to secure chat and PDF report delivery.',
+    stack: ['Next.js 16', 'Agora RTC', 'Tailwind', 'Node.js', 'Express', 'MongoDB'],
+    image: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=2070&auto=format&fit=crop',
+    link: '#',
+    github: '#'
+  },
+  {
+    id: '02',
+    title: 'Soul Academy',
+    category: 'Client Project',
+    description: 'Full-stack platform built for a live client, featuring Paytm payment integration, authentication, and a custom admin dashboard. Resolved critical production payment bugs post-launch.',
+    stack: ['Next.js', 'Node.js', 'Paytm', 'Tailwind'],
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop',
+    link: 'https://soulacademy.in',
+    github: '#'
+  }
+];
+
+const primaryProjects = [
+  {
+    id: '03',
     title: 'AI-Based Public Grievance Analysis',
-    category: 'AI + Full Stack',
     description: 'Full-stack application utilizing DistilBERT for NLP-based complaint classification, sentiment analysis, and urgency detection. Features an admin dashboard, priority queue, and real-time status tracking.',
     stack: ['FastAPI', 'Next.js', 'Celery', 'PostgreSQL'],
     image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop',
@@ -17,34 +39,21 @@ const featuredProjects = [
     github: 'https://github.com/swayam0/public-grievance-ai'
   },
   {
-    id: '02',
+    id: '04',
     title: 'Codelura',
-    category: 'AI Developer Platform',
     description: 'Modern full-stack platform for learning and content delivery. Integrates AI capabilities like automated blog summaries, tag generation, SEO optimization, and job description engineering.',
     stack: ['Next.js 16', 'Node.js', 'Express', 'MongoDB'],
     image: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=2088&auto=format&fit=crop',
     link: '#',
     github: 'https://github.com/swayam0/Codelura'
-  }
-];
-
-const primaryProjects = [
+  },
   {
-    id: '03',
+    id: '05',
     title: 'Yantra',
     description: 'AI-native learning platform prototype combining a Python microservice, Pyodide in-browser execution, and Sarvam STT/TTS voice integration.',
     stack: ['Supabase', 'Python', 'FastAPI'],
     image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop',
     github: 'https://github.com/swayam0/Yantra',
-    link: '#'
-  },
-  {
-    id: '04',
-    title: 'AstroVastu Web Platform',
-    description: 'Professional webinar and consultation platform featuring Agora RTC for live streaming, integrated chat, and secure PDF report delivery.',
-    stack: ['Next.js 16', 'Agora RTC', 'Tailwind'],
-    image: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=2070&auto=format&fit=crop',
-    github: '#',
     link: '#'
   }
 ];

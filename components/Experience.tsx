@@ -5,6 +5,20 @@ import { motion } from 'framer-motion';
 
 const experiences = [
   {
+    role: 'Full Stack Developer (Contract)',
+    company: 'Alpixn',
+    period: '06/2026 - 07/2026',
+    description: 'Built and shipped Soul Academy (soulacademy.in), a Next.js platform with Paytm payment integration, user authentication, and admin dashboard. Resolved production bugs including payment flow issues.',
+    tech: ['Next.js', 'Node.js', 'Paytm API']
+  },
+  {
+    role: 'Remote Developer',
+    company: 'Axaon Software',
+    period: '06/2026 - 07/2026',
+    description: 'Contributed to software development in a remote team environment, building features and fixing bugs in a fast-paced environment.',
+    tech: ['React', 'TypeScript', 'Node.js', 'Tailwind CSS']
+  },
+  {
     role: 'AI/ML Intern',
     company: 'InternPro',
     period: 'Dec 2025 - May 2026',
