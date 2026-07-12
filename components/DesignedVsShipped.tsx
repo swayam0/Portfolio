@@ -43,7 +43,7 @@ export default function DesignedVsShipped() {
             Designed vs. Shipped
           </h2>
           <p className="text-gray-400 font-body text-lg max-w-2xl">
-            A live demo of the QA logic behind ShipProof — the tool I'm building for agencies to catch design drift automatically.
+            A live demo of the QA logic behind ShipProof — the tool I&apos;m building for agencies to catch design drift automatically.
           </p>
         </div>
 
