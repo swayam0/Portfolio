@@ -2,6 +2,12 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
+
+const InteractiveNodeGraph = dynamic(() => import('./InteractiveNodeGraph'), {
+  ssr: false,
+  loading: () => <div className="min-h-[400px] flex items-center justify-center font-label-mono text-xs text-outline-variant">Loading graph...</div>
+});
 
 const skills = {
   primary: ['TypeScript', 'Next.js', 'React', 'Python', 'FastAPI'],
@@ -14,11 +20,13 @@ export default function Skills() {
     <section className="py-unit-xl border-t border-outline-variant/20" id="skills">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
         <div className="mb-unit-xl">
-          <span className="font-label-mono text-label-mono text-primary uppercase tracking-widest block mb-2">05. Technical Capability</span>
+          <span className="font-label-mono text-label-mono text-primary uppercase tracking-widest block mb-2">$ cat ./skills.json</span>
           <h2 className="font-display-lg-mobile md:font-headline-lg text-on-surface">Skills Matrix</h2>
         </div>
         
-        <div className="flex flex-col gap-16 md:gap-24 mt-12">
+        <InteractiveNodeGraph />
+        
+        <div className="flex flex-col gap-16 md:gap-24 mt-24">
           {/* Primary */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
