@@ -6,6 +6,7 @@ import CinematicAbout from '@/components/CinematicAbout';
 import CinematicProjects from '@/components/CinematicProjects';
 import CinematicExperience from '@/components/CinematicExperience';
 import BuildLog from '@/components/BuildLog';
+import CinematicContact from '@/components/CinematicContact';
 import CinematicFooter from '@/components/CinematicFooter';
 
 export default function Home() {
@@ -38,6 +39,7 @@ export default function Home() {
         <CinematicProjects />
         <CinematicExperience />
         <BuildLog />
+        <CinematicContact />
       </main>
       
       <CinematicFooter />
