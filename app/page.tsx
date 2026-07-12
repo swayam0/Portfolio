@@ -1,11 +1,10 @@
 'use client';
 
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import CinematicHero from '@/components/CinematicHero';
 import CinematicAbout from '@/components/CinematicAbout';
 import CinematicProjects from '@/components/CinematicProjects';
 import CinematicExperience from '@/components/CinematicExperience';
-import BuildLog from '@/components/BuildLog';
 import CinematicContact from '@/components/CinematicContact';
 import CinematicFooter from '@/components/CinematicFooter';
 
@@ -28,8 +27,13 @@ export default function Home() {
       {/* Global Scroll Indicator (Appears between panels) */}
       <div className="fixed left-1/2 top-0 bottom-0 -translate-x-1/2 w-[1px] bg-white/[0.03] z-0 hidden lg:block">
         <motion.div 
-          className="w-full bg-white/20 origin-top"
-          style={{ scaleY, height: '100%' }}
+          style={{ scaleY: scrollYProgress, transformOrigin: 'top' }}
+          className="absolute top-0 left-0 w-full h-full bg-amber-500/50 rounded-full"
+        />
+        {/* The tracking dot */}
+        <motion.div 
+          style={{ top: useTransform(scrollYProgress, [0, 1], ["0%", "100%"]) }}
+          className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.5)]"
         />
       </div>
 
@@ -38,7 +42,6 @@ export default function Home() {
         <CinematicAbout />
         <CinematicProjects />
         <CinematicExperience />
-        <BuildLog />
         <CinematicContact />
       </main>
       

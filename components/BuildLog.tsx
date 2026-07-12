@@ -12,7 +12,7 @@ export default function BuildLog() {
   return (
     <SectionPanel className="font-mono text-sm">
       <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/5">
-        <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+        <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse shadow-[0_0_8px_rgba(245,158,11,0.5)]" />
         <span className="text-white/60">terminal // recent momentum</span>
       </div>
       
