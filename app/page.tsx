@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import DesignedVsShipped from "@/components/DesignedVsShipped";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
@@ -16,6 +17,7 @@ export default function Home() {
       <Header />
       <main className="pt-20">
         <Hero />
+        <DesignedVsShipped />
         <About />
         <Experience />
         <Projects />
