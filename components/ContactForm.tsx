@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import MagneticButton from './MagneticButton';
 
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -158,13 +159,15 @@ export default function ContactForm() {
             <p className="text-red-400 text-sm">There was an issue sending your message. Please try again or email directly.</p>
           )}
 
-          <button
-            type="submit"
-            disabled={status === 'loading'}
-            className="w-full md:w-auto self-end px-8 py-4 rounded-full bg-amber-600 hover:bg-amber-500 disabled:opacity-50 disabled:hover:bg-amber-600 text-[#050505] font-medium text-sm transition-colors mt-4"
-          >
-            {status === 'loading' ? 'Sending...' : 'Send Message'}
-          </button>
+          <MagneticButton className="w-full md:w-auto self-end mt-4">
+            <button
+              type="submit"
+              disabled={status === 'loading'}
+              className="w-full px-8 py-4 rounded-full bg-amber-600 hover:bg-amber-500 disabled:opacity-50 disabled:hover:bg-amber-600 text-white font-medium text-sm transition-colors"
+            >
+              {status === 'loading' ? 'Sending...' : 'Send Message'}
+            </button>
+          </MagneticButton>
         </form>
       )}
 

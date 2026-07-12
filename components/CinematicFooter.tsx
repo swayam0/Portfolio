@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 export default function CinematicFooter() {
   return (
     <section className="relative w-full min-h-[50vh] flex flex-col items-center justify-center border-t border-white/5 bg-[radial-gradient(#333_1px,transparent_1px)] [background-size:24px_24px] bg-[#050505]">
@@ -19,7 +18,6 @@ export default function CinematicFooter() {
         </a>
         
         <div className="flex items-center gap-12 text-sm text-white/40 uppercase tracking-widest font-medium">
-          <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
           <a href="https://github.com/swayam0" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
           <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
         </div>

@@ -10,9 +10,15 @@ export default function CustomCursor() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  const springConfig = { damping: 25, stiffness: 300, mass: 0.5 };
-  const cursorXSpring = useSpring(cursorX, springConfig);
-  const cursorYSpring = useSpring(cursorY, springConfig);
+  // Fast spring for inner dot
+  const dotSpringConfig = { damping: 25, stiffness: 600, mass: 0.2 };
+  const dotX = useSpring(cursorX, dotSpringConfig);
+  const dotY = useSpring(cursorY, dotSpringConfig);
+
+  // Slower, trailing spring for outer ring
+  const ringSpringConfig = { damping: 30, stiffness: 200, mass: 0.8 };
+  const ringX = useSpring(cursorX, ringSpringConfig);
+  const ringY = useSpring(cursorY, ringSpringConfig);
 
   useEffect(() => {
     // Check if device supports touch
@@ -21,9 +27,12 @@ export default function CustomCursor() {
       return;
     }
 
+    // Also add a class to the body to hide the default cursor
+    document.body.classList.add('custom-cursor-active');
+
     const moveCursor = (e: MouseEvent) => {
-      cursorX.set(e.clientX - 10);
-      cursorY.set(e.clientY - 10);
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -46,6 +55,7 @@ export default function CustomCursor() {
     window.addEventListener('mouseover', handleMouseOver);
 
     return () => {
+      document.body.classList.remove('custom-cursor-active');
       window.removeEventListener('mousemove', moveCursor);
       window.removeEventListener('mouseover', handleMouseOver);
     };
@@ -54,24 +64,42 @@ export default function CustomCursor() {
   if (isTouch) return null;
 
   return (
-    <motion.div
-      className="fixed top-0 left-0 w-5 h-5 pointer-events-none z-[9999] mix-blend-difference hidden md:block"
-      style={{
-        x: cursorXSpring,
-        y: cursorYSpring,
-      }}
-    >
+    <>
+      {/* Outer trailing ring */}
       <motion.div
+        className="fixed top-0 left-0 pointer-events-none z-[10000] hidden md:flex items-center justify-center rounded-full border border-amber-500/40 mix-blend-screen"
+        style={{
+          x: ringX,
+          y: ringY,
+          width: 36,
+          height: 36,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
         animate={{
           scale: isHovering ? 1.5 : 1,
-          borderRadius: isHovering ? "0%" : "50%",
-          rotate: isHovering ? 90 : 0,
+          backgroundColor: isHovering ? 'rgba(245, 158, 11, 0.15)' : 'rgba(245, 158, 11, 0)',
+          borderColor: isHovering ? 'rgba(245, 158, 11, 0)' : 'rgba(245, 158, 11, 0.4)',
         }}
         transition={{ duration: 0.2 }}
-        className="w-full h-full border border-primary flex items-center justify-center bg-primary/10"
-      >
-        {isHovering && <div className="w-[1px] h-3 bg-primary" />}
-      </motion.div>
-    </motion.div>
+      />
+      {/* Inner fast dot */}
+      <motion.div
+        className="fixed top-0 left-0 pointer-events-none z-[10001] hidden md:block rounded-full bg-amber-500"
+        style={{
+          x: dotX,
+          y: dotY,
+          width: 6,
+          height: 6,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
+        animate={{
+          scale: isHovering ? 0 : 1,
+          opacity: isHovering ? 0 : 1,
+        }}
+        transition={{ duration: 0.2 }}
+      />
+    </>
   );
 }

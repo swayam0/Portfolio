@@ -3,9 +3,12 @@ import { JetBrains_Mono } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import Spotlight from "@/components/Spotlight";
-import CommandPalette from "@/components/CommandPalette";
-import LiveAIWidget from "@/components/LiveAIWidget";
+import dynamic from 'next/dynamic';
+
+const CommandCenter = dynamic(() => import('@/components/CommandCenter'), { ssr: false });
+const LiveAIWidget = dynamic(() => import('@/components/LiveAIWidget'), { ssr: false });
 import CustomCursor from "@/components/CustomCursor";
+import FilmGrain from "@/components/FilmGrain";
 import { Analytics } from "@vercel/analytics/next";
 
 const jetbrainsMono = JetBrains_Mono({
@@ -75,11 +78,12 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${GeistSans.variable} ${jetbrainsMono.variable} font-body selection:bg-primary/20 selection:text-primary antialiased cursor-none md:cursor-none`}
+        className={`${GeistSans.variable} ${jetbrainsMono.variable} font-body selection:bg-primary/20 selection:text-primary antialiased`}
       >
+        <FilmGrain />
         <CustomCursor />
         <Spotlight />
-        <CommandPalette />
+        <CommandCenter />
         {children}
         <LiveAIWidget />
         <Analytics />

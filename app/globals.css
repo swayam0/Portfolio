@@ -66,3 +66,8 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background-color: #494bd6; /* Primary accent on hover */
 }
+
+/* Custom Cursor */
+body.custom-cursor-active * {
+  cursor: none !important;
+}

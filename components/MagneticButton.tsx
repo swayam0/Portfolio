@@ -37,9 +37,9 @@ export default function MagneticButton({
     const centerX = left + width / 2;
     const centerY = top + height / 2;
     
-    // Limit movement to max ~6px
-    const distanceX = ((clientX - centerX) / (width / 2)) * 6;
-    const distanceY = ((clientY - centerY) / (height / 2)) * 6;
+    // Limit movement to max ~12px
+    const distanceX = ((clientX - centerX) / (width / 2)) * 12;
+    const distanceY = ((clientY - centerY) / (height / 2)) * 12;
     
     x.set(distanceX);
     y.set(distanceY);

@@ -7,6 +7,8 @@ import CinematicProjects from '@/components/CinematicProjects';
 import CinematicExperience from '@/components/CinematicExperience';
 import CinematicContact from '@/components/CinematicContact';
 import CinematicFooter from '@/components/CinematicFooter';
+import CinematicSkills from '@/components/CinematicSkills';
+import CinematicNav from '@/components/CinematicNav';
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -37,9 +39,12 @@ export default function Home() {
         />
       </div>
 
-      <main className="relative z-10 flex flex-col items-center max-w-5xl mx-auto px-6 pt-32 pb-12 gap-24 md:gap-32">
+      <CinematicNav />
+
+      <main id="home" className="relative z-10 flex flex-col items-center max-w-5xl mx-auto px-6 pt-32 pb-12 gap-24 md:gap-32">
         <CinematicHero />
         <CinematicAbout />
+        <CinematicSkills />
         <CinematicProjects />
         <CinematicExperience />
         <CinematicContact />

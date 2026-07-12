@@ -1,18 +1,76 @@
 'use client';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import MagneticButton from './MagneticButton';
+
+const QUOTES = [
+  "currently has 4 tabs open about the same bug",
+  "last deploy: today, 2am, don't ask",
+  "probably writing a prompt right now",
+  "refusing to center a div since 2021",
+  "coffee to code ratio critically unbalanced",
+];
 
 export default function CinematicHero() {
+  const [hoverQuote, setHoverQuote] = useState("");
+  const [displayedQuote, setDisplayedQuote] = useState("");
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    if (isHovered && hoverQuote) {
+      let i = 0;
+      const type = () => {
+        setDisplayedQuote(hoverQuote.substring(0, i));
+        i++;
+        if (i <= hoverQuote.length) {
+          timeout = setTimeout(type, 30);
+        }
+      };
+      type();
+    } else {
+      setDisplayedQuote("");
+    }
+    return () => clearTimeout(timeout);
+  }, [isHovered, hoverQuote]);
+
   return (
     <section className="relative w-full min-h-[90vh] flex flex-col justify-center px-6 md:px-12 lg:px-24">
       <div className="max-w-5xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-10"
+          className="mb-6"
         >
-          <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-serif text-white leading-[0.85] tracking-tighter -ml-1 md:-ml-2">
-            Swayam<br />Awari<span className="text-amber-500">.</span>
+          <h2 
+            className="text-4xl md:text-5xl lg:text-6xl text-amber-500 font-medium tracking-tight inline-block cursor-default relative"
+            onMouseEnter={() => {
+              if (!isHovered) {
+                setHoverQuote(QUOTES[Math.floor(Math.random() * QUOTES.length)]);
+                setIsHovered(true);
+              }
+            }}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            Swayam Awari
+            {isHovered && (
+              <span className="absolute left-full ml-6 top-1/2 -translate-y-1/2 text-sm text-[#888] font-mono whitespace-nowrap hidden md:inline-block tracking-normal">
+                &gt; {displayedQuote}<span className="animate-pulse">_</span>
+              </span>
+            )}
+          </h2>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-8"
+        >
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white leading-[1.1] tracking-tighter -ml-1">
+            I build things that work.<br />
+            <span className="text-white/80">Then I make sure they keep working.</span>
           </h1>
         </motion.div>
         
@@ -20,13 +78,10 @@ export default function CinematicHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col gap-5 max-w-2xl pl-6 md:pl-8 border-l border-amber-500/40"
+          className="flex flex-col gap-8 max-w-3xl"
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl text-white/90 font-light tracking-tight leading-snug">
-            I ship resilient products from end to end.
-          </h2>
-          <p className="text-[#888] text-lg font-light leading-relaxed">
-            Final-year CS student building full-stack + AI/agent products, split between freelance client work and job hunting.
+          <p className="text-[#888] text-lg md:text-xl font-light leading-relaxed max-w-2xl">
+            Full-stack + AI engineer, split between freelance client work and full-time job hunting.
           </p>
         </motion.div>
 
@@ -36,12 +91,16 @@ export default function CinematicHero() {
           transition={{ duration: 1, delay: 0.4 }}
           className="mt-12 flex flex-wrap items-center gap-6"
         >
-          <a href="#work" className="px-8 py-4 rounded-full bg-amber-600 text-white font-medium text-sm hover:bg-amber-500 transition-colors">
-            Explore Work ↘
-          </a>
-          <a href="/resume.pdf" className="px-8 py-4 rounded-full bg-white/5 text-white border border-white/10 font-medium text-sm hover:bg-white/10 transition-colors">
-            View Resume
-          </a>
+          <MagneticButton>
+            <a href="#projects" className="px-8 py-4 rounded-full bg-amber-600 text-white font-medium text-sm hover:bg-amber-500 transition-colors inline-block">
+              Explore Work ↘
+            </a>
+          </MagneticButton>
+          <MagneticButton>
+            <a href="/resume.pdf" className="px-8 py-4 rounded-full bg-white/5 text-white border border-white/10 font-medium text-sm hover:bg-white/10 transition-colors inline-block">
+              View Resume
+            </a>
+          </MagneticButton>
         </motion.div>
       </div>
     </section>
