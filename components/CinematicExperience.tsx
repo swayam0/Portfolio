@@ -1,9 +1,10 @@
 'use client';
 import { motion } from 'framer-motion';
+import SectionPanel from './SectionPanel';
 
 export default function CinematicExperience() {
   return (
-    <section className="w-full bg-[#0a0a0a] rounded-[24px] border border-white/5 p-8 md:p-12">
+    <SectionPanel>
       <div className="text-center mb-16">
         <span className="text-xs uppercase tracking-widest text-[#888] bg-[#111] px-4 py-2 rounded-full border border-white/5 mb-6 inline-block">
           Experience
@@ -21,7 +22,7 @@ export default function CinematicExperience() {
       >
         
         <div className="relative pl-8 pb-16">
-          <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-white ring-4 ring-[#0a0a0a]" />
+          <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-white ring-4 ring-[#0d0d10]" />
           <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-2">
             <h3 className="text-2xl font-light text-white">Software Engineer</h3>
             <span className="text-xs uppercase tracking-widest text-[#888] mt-1 md:mt-0">June 2026 – Present</span>
@@ -33,18 +34,18 @@ export default function CinematicExperience() {
         </div>
 
         <div className="relative pl-8">
-          <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-[#333] ring-4 ring-[#0a0a0a]" />
+          <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-[#333] ring-4 ring-[#0d0d10]" />
           <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-2">
-            <h3 className="text-2xl font-light text-white">Frontend Developer</h3>
-            <span className="text-xs uppercase tracking-widest text-[#888] mt-1 md:mt-0">2023 – 2024</span>
+            <h3 className="text-2xl font-light text-white">AI/ML Intern</h3>
+            <span className="text-xs uppercase tracking-widest text-[#888] mt-1 md:mt-0">Dec 2025 – May 2026</span>
           </div>
-          <div className="text-[#888] mb-4">Alpixn</div>
+          <div className="text-[#888] mb-4">InternPro</div>
           <p className="text-[#888] font-light leading-relaxed">
-            Spearheaded migration to Next.js App Router and optimized core web vitals for critical client applications.
+            Worked on the development and integration of AI/ML capabilities into practical software applications, including model experimentation, data processing, backend integration, and application development.
           </p>
         </div>
 
       </motion.div>
-    </section>
+    </SectionPanel>
   );
 }

@@ -1,5 +1,5 @@
 'use client';
-import { motion } from 'framer-motion';
+import SectionPanel from './SectionPanel';
 
 const LOGS = [
   { time: '12h ago', message: 'shipped Soul Academy → prod' },
@@ -10,12 +10,7 @@ const LOGS = [
 
 export default function BuildLog() {
   return (
-    <motion.section 
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="w-full bg-[#0a0a0a] rounded-[24px] border border-white/5 p-6 md:p-8 font-mono text-sm"
-    >
+    <SectionPanel className="font-mono text-sm">
       <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/5">
         <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
         <span className="text-white/60">terminal // recent momentum</span>
@@ -29,6 +24,6 @@ export default function BuildLog() {
           </div>
         ))}
       </div>
-    </motion.section>
+    </SectionPanel>
   );
 }

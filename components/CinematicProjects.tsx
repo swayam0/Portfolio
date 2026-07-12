@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import SectionPanel from './SectionPanel';
 
 const PROJECTS = [
   {
@@ -55,7 +56,7 @@ const PROJECTS = [
 
 export default function CinematicProjects() {
   return (
-    <section className="w-full bg-[#0a0a0a] rounded-[24px] border border-white/5 p-8 md:p-12">
+    <SectionPanel>
       <div className="flex justify-center mb-16">
         <span className="text-xs uppercase tracking-widest text-[#888] bg-[#111] px-4 py-2 rounded-full border border-white/5">
           Selected Works
@@ -104,6 +105,6 @@ export default function CinematicProjects() {
           );
         })}
       </div>
-    </section>
+    </SectionPanel>
   );
 }
