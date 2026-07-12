@@ -4,12 +4,6 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import dynamic from 'next/dynamic';
-
-const DesignedVsShipped = dynamic(() => import('./DesignedVsShipped'), {
-  ssr: false,
-});
-
 
 const projects = [
   {
@@ -121,16 +115,6 @@ export default function PremiumPortfolio() {
           </div>
         </motion.section>
 
-        {/* DESIGNED VS SHIPPED QA SLIDER */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="mb-32"
-        >
-          <DesignedVsShipped />
-        </motion.section>
 
         {/* PROJECTS SECTION */}
         <motion.section 
