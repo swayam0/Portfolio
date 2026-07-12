@@ -46,10 +46,17 @@ export default function LiveAIWidget() {
 
       const data = await response.json();
       
-      setMessages(prev => [...prev, {
-        role: 'assistant',
-        content: data.reply || "Error: Unable to parse response."
-      }]);
+      if (data.error) {
+        setMessages(prev => [...prev, {
+          role: 'assistant',
+          content: `Error: ${data.error}`
+        }]);
+      } else {
+        setMessages(prev => [...prev, {
+          role: 'assistant',
+          content: data.reply || "Error: Unable to parse response."
+        }]);
+      }
     } catch (error) {
       setMessages(prev => [...prev, {
         role: 'assistant',
