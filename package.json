@@ -12,6 +12,7 @@
     "@google/generative-ai": "^0.24.1",
     "@react-three/drei": "^9.122.0",
     "@react-three/fiber": "^8.18.0",
+    "@react-three/postprocessing": "^3.0.4",
     "@vercel/analytics": "^2.0.1",
     "framer-motion": "^12.42.2",
     "geist": "^1.7.2",
