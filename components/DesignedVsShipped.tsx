@@ -12,14 +12,7 @@ const ANNOTATIONS = [
 export default function DesignedVsShipped() {
   return (
     <div className="w-full">
-      {/* Header */}
-      <h2 className="text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-6">Designed vs. Shipped</h2>
-      <div className="mb-12">
-        <h3 className="text-3xl font-light text-white mb-4">ShipProof QA Demo</h3>
-        <p className="text-zinc-400 font-light leading-relaxed max-w-2xl">
-          A live demo of the QA logic behind ShipProof — the tool I&apos;m building for agencies to catch design drift automatically between Figma and staging.
-        </p>
-      </div>
+
 
       {/* Comparison Container */}
       <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-white/5 bg-zinc-950/40 backdrop-blur-md">

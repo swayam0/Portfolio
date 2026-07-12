@@ -4,7 +4,12 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import DesignedVsShipped from './DesignedVsShipped';
+import dynamic from 'next/dynamic';
+
+const DesignedVsShipped = dynamic(() => import('./DesignedVsShipped'), {
+  ssr: false,
+});
+
 
 const projects = [
   {
