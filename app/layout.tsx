@@ -6,6 +6,7 @@ import Spotlight from "@/components/Spotlight";
 import CustomCursor from "@/components/CustomCursor";
 import FilmGrain from "@/components/FilmGrain";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -81,6 +82,7 @@ export default function RootLayout({
         <Spotlight />
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
