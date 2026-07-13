@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import MagneticButton from './MagneticButton';
+import Hero3D from './Hero3D';
 
 const QUOTES = [
   "currently has 4 tabs open about the same bug",
@@ -35,8 +36,9 @@ export default function CinematicHero() {
   }, [isHovered, hoverQuote]);
 
   return (
-    <section className="relative w-full min-h-[90vh] flex flex-col justify-center px-6 md:px-12 lg:px-24">
-      <div className="max-w-5xl">
+    <section className="relative w-full min-h-[90vh] flex flex-col justify-center px-6 md:px-12 lg:px-24 overflow-hidden">
+      <Hero3D />
+      <div className="max-w-5xl relative z-10 pointer-events-none">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -44,7 +46,7 @@ export default function CinematicHero() {
           className="mb-6"
         >
           <h2 
-            className="text-4xl md:text-5xl lg:text-6xl text-amber-500 font-medium tracking-tight inline-block cursor-default relative"
+            className="text-4xl md:text-5xl lg:text-6xl text-amber-500 font-medium tracking-tight inline-block cursor-default relative pointer-events-auto"
             onMouseEnter={() => {
               if (!isHovered) {
                 setHoverQuote(QUOTES[Math.floor(Math.random() * QUOTES.length)]);
@@ -89,7 +91,7 @@ export default function CinematicHero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="mt-12 flex flex-wrap items-center gap-6"
+          className="mt-12 flex flex-wrap items-center gap-6 pointer-events-auto"
         >
           <MagneticButton>
             <a href="#projects" className="px-8 py-4 rounded-full bg-amber-600 text-white font-medium text-sm hover:bg-amber-500 transition-colors inline-block">

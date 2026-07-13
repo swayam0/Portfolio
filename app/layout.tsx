@@ -3,10 +3,6 @@ import { JetBrains_Mono } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import Spotlight from "@/components/Spotlight";
-import dynamic from 'next/dynamic';
-
-const CommandCenter = dynamic(() => import('@/components/CommandCenter'), { ssr: false });
-const LiveAIWidget = dynamic(() => import('@/components/LiveAIWidget'), { ssr: false });
 import CustomCursor from "@/components/CustomCursor";
 import FilmGrain from "@/components/FilmGrain";
 import { Analytics } from "@vercel/analytics/next";
@@ -83,9 +79,7 @@ export default function RootLayout({
         <FilmGrain />
         <CustomCursor />
         <Spotlight />
-        <CommandCenter />
         {children}
-        <LiveAIWidget />
         <Analytics />
       </body>
     </html>

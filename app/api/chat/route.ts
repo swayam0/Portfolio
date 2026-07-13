@@ -1,7 +1,7 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import { NextRequest, NextResponse } from "next/server";
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
 
 // Simple in-memory rate limiter (resets on redeploy — fine for a portfolio site)
 const rateLimit = new Map<string, { count: number; resetAt: number }>();
@@ -72,13 +72,14 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const model = genAI.getGenerativeModel({
-      model: "gemini-3.5-flash",
-      systemInstruction: SYSTEM_CONTEXT,
+    const result = await ai.models.generateContent({
+      model: "gemini-1.5-flash",
+      contents: message,
+      config: {
+        systemInstruction: SYSTEM_CONTEXT,
+      }
     });
-
-    const result = await model.generateContent(message);
-    const text = result.response.text();
+    const text = result.text;
 
     return NextResponse.json({ reply: text });
   } catch (err) {
