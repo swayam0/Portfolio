@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { profile } from '@/data/portfolio/profile';
 
 const sections = [
   { id: 'home', label: 'index.tsx' },
@@ -76,9 +77,9 @@ export default function Header() {
           <span className="material-symbols-outlined text-[14px]">search</span>
           ⌘K
         </button>
-        <Link href="/resume.pdf" target="_blank" className="font-label-mono text-xs text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1">
+        <Link href={profile.links.resume} target="_blank" className="font-label-mono text-xs text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1">
           <span className="material-symbols-outlined text-[14px]">download</span>
-          resume.pdf
+          {profile.links.resume.split('/').pop()}
         </Link>
       </div>
     </nav>

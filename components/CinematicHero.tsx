@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import MagneticButton from './MagneticButton';
 import Hero3D from './Hero3D';
+import { profile } from '@/data/portfolio/profile';
 
 const QUOTES = [
   "currently has 4 tabs open about the same bug",
@@ -99,7 +100,7 @@ export default function CinematicHero() {
             </a>
           </MagneticButton>
           <MagneticButton>
-            <a href="/resume.pdf" className="px-8 py-4 rounded-full bg-white/5 text-white border border-white/10 font-medium text-sm hover:bg-white/10 transition-colors inline-block">
+            <a href={profile.links.resume} target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-full bg-white/5 text-white border border-white/10 font-medium text-sm hover:bg-white/10 transition-colors inline-block">
               View Resume
             </a>
           </MagneticButton>
